@@ -15,6 +15,10 @@ async function loadQuestion () {
 function showQuestion(data) {
     let correctAnswer = data.correct_answer;
     let incorrectAnswer = data.incorrect_answers;
+    // inserting correct answer in random position in the options list
+    let optionsList = incorrectAnswer;   
+    optionsList.splice(Math.floor(Math.random() * 
+    (incorrectAnswer.length + 1)), 0, correctAnswer);
     
 }
 
