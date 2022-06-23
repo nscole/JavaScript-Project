@@ -8,6 +8,7 @@ const _totalQuestions = document.getElementById("total-question");
 const _checkBtn = document.getElementById("check-answer");
 const _playAgainBtn = document.getElementById("play-again");
 const _result = document.getElementById("result");
+let askedCount = "";
 
 
 let correctAnswer = "", correctScore = askedCount = 0, totalQuestions = 10;
@@ -19,6 +20,7 @@ function eventCheckBtn(){
 }
 
 
+// DOMContentLoaded Event Listener
 document.addEventListener("DOMContentLoaded", () => {
     loadQuestion();
     eventCheckBtn();
@@ -104,7 +106,7 @@ function checkCount (){
     } else {
         setTimeout(() => {
         loadQuestion ();
-    }, 500);
+    }, 200);
     }
 }
 
@@ -124,3 +126,18 @@ function restartQuiz () {
     setCount ();
     loadQuestion ();
 }
+
+// Header Function
+let imgHead = document.querySelector("#image-header");
+
+function displayImage(){
+    imgHead.innerHTML = `<img src="Images/Header-1.png" alt="header-1">`;
+  };
+
+function displayOtherImage () {
+    imgHead.innerHTML = `<img src="Images/Header-2.png" alt="header-2">`
+};
+
+// Header Image Event Listener
+imgHead.addEventListener("mouseover", displayOtherImage)
+imgHead.addEventListener("mouseout", displayImage)

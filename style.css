@@ -15,7 +15,7 @@
     --dark-color: #000;
     --gray-color: #f2f2f2;
     --dark-gray-colour: rgb(52, 48, 48);
-    --transition: all 300ms ease-in-out;
+    --transition: all 1ms ease-in-out;
 }
 
 .flex {
@@ -170,8 +170,6 @@ body {
     font-size: 1.3rem;
     font-weight: 600;
     margin-top: 30px;
-  
-
 }
 
 
