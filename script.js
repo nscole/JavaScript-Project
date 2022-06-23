@@ -1,8 +1,15 @@
 // https://opentdb.com/api.php?amount=10
 
 const _question = document.getElementById("question");
-const _options = document.querySelector(".quiz-options")
+const _options = document.querySelector(".quiz-options");
+const _correctScore = document.getElementById("correct-score");
+const _totalQuestions = document.getElementById("total-question");
 
+let correctAnswer = "". correctScore = askedCount = 0, totalQuestions = 10;
+
+document.addEventListener("DOMContentLoaded", () => {
+    
+})
 
 async function loadQuestion () {
     const apiURL = 'https://opentdb.com/api.php?amount=10';
