@@ -4,11 +4,15 @@ const _question = document.getElementById("question");
 const _options = document.querySelector(".quiz-options");
 const _correctScore = document.getElementById("correct-score");
 const _totalQuestions = document.getElementById("total-question");
+const _checkBtn = document.getElementById("check-answer");
+const _playAgainBtn = document.getElementById("play-again");
 
-let correctAnswer = "". correctScore = askedCount = 0, totalQuestions = 10;
+let correctAnswer = "", correctScore = askedCount = 0, totalQuestions = 10;
 
 document.addEventListener("DOMContentLoaded", () => {
-    
+    loadQuestion();
+    _totalQuestions.textContent = totalQuestions;
+    _correctScore.textContent = correctScore;
 })
 
 async function loadQuestion () {
@@ -34,6 +38,25 @@ function showQuestion(data) {
         <li> ${index +1}. <span> ${option} </span> </li>
         `).join("")}
         `;
+
+        selectAnswer ();
 }
 
-loadQuestion();
+
+// Options section
+function selectAnswer () {
+    _options.querySelectorAll("li").forEach((option) =>
+    option.addEventListener("click", () =>{
+        if(_options.querySelector(".selected")){
+            const activeOption = _options.querySelector(".selected");
+            activeOption.classList.remove('selected');
+        }
+        option.classList.add("selected");
+    })
+    );
+};
+
+// Answer Checking
+function checkAnswer() {
+    console.log("Check Answer!")
+}
