@@ -9,12 +9,13 @@ async function loadQuestion () {
     const results = await fetch(`${apiURL}`);
     const data = await results.json();
     // console.log(data.results[0]);
-    showQuestion(data.results[0])
+    showQuestion(data.results[1])
 }
 
 function showQuestion(data) {
-    let correctAnswer = data.correct_answerl
-    console.log(data);
+    let correctAnswer = data.correct_answer;
+    let incorrectAnswer = data.incorrect_answers;
+    
 }
 
 loadQuestion();
