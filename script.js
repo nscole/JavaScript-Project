@@ -9,8 +9,15 @@ const _playAgainBtn = document.getElementById("play-again");
 
 let correctAnswer = "", correctScore = askedCount = 0, totalQuestions = 10;
 
+// Event Listeners
+function eventCheckBtn(){
+    _checkBtn.addEventListener("click", checkAnswer);
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
     loadQuestion();
+    eventCheckBtn();
     _totalQuestions.textContent = totalQuestions;
     _correctScore.textContent = correctScore;
 })
@@ -58,5 +65,5 @@ function selectAnswer () {
 
 // Answer Checking
 function checkAnswer() {
-    console.log("Check Answer!")
+    console.log("Hello")
 }
