@@ -7,7 +7,10 @@
 }
 
 :root {
-    --light-purple-color: #8854c0;
+    --light-pink-color: #F05BA8;
+    --dark-pink-color: #A32E6A;
+    --blue-color-contrast: #43DCF0;
+    --dark-blue-color: #3697A3;
     --light-color: #fff;
     --dark-color: #000;
     --gray-color: #f2f2f2;
@@ -35,5 +38,34 @@ body {
     height: 680px;
     border-top-left-radius: 1.5rem;
     border-top-right-radius: 1.5rem; 
+    position: relative;
+    box-shadow: 0 4px 6px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 /10%);
+}
+
+.quiz-title{
+    text-align: center;
+    font-size: 2rem;
+}
+.quiz-score{
+    text-align: right;
+    font-weight: 600rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 5px solid var(--gray-color);
+    width: 100px;
+    height: 50px;
+    margin: .5rem auto;
+    color: var(--light-pink-color);
+}
+
+.quiz-question {
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 2rem;
+}
+
+.quiz-question .category {
+    font-size: 0.9rem;
 }
 
