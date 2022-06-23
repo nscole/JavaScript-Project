@@ -138,11 +138,36 @@ body {
     box-shadow: 3px 4px 0 0 var(--dark-pink-color);
 }
 
+.quiz-foot button:active{
+    transform: scale(0.95);
+}
+
 #play-again {
     display: none;
 }
 
 
+/* Results styling */
+
+
+
+
+
+@media(max-width: 678px){
+    .quiz-title{
+        font-size: 1.6rem;
+    }
+    .wrapper {
+        margin: 3rem 0;
+        width: 90%;
+        padding: 1.5rem 1rem 3rem 1rem;
+        border-top-right-radius: 0;
+        border-top-left-radius: 0;
+    }
+    .quiz-foot button {
+        font-size: 1rem;
+    }
+}
 
 
 
