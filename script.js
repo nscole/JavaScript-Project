@@ -65,7 +65,7 @@ function selectOption () {
         option.classList.add("selected");
     })
     );
-    // console.log(correctAnswer);
+    console.log(correctAnswer);
 };
 
 // Answer Checking
@@ -84,10 +84,32 @@ function checkAnswer() {
         _result.innerHTML = `<p>Please select an option!</p>`;
         _checkBtn.disabled = false;
     }
+    checkCount();
 }
 
 function decodeHTML(textstring){
     let doc = new DOMParser().parseFromString(textstring, "text/html");
     return doc.documentElement.textContent;
 }
+
+function checkCount (){
+    askedCount++;
+    setCount();
+    if(askedCount === totalQuestions){
+        _result.innerHTML += `<p> Your score is ${correctScore} </p>`;
+        _playAgainBtn.style.display = "block";
+        _checkBtn.style.display = "none";
+    } else {
+        setTimeout(() => {
+        loadQuestion ();
+    }, 300);
+    }
+}
+
+
+function setCount(){
+    _totalQuestions.textContent = totalQuestions;
+    _correctScore.textContent = correctScore;
+}
+
 
