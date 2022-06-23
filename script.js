@@ -6,6 +6,7 @@ const _correctScore = document.getElementById("correct-score");
 const _totalQuestions = document.getElementById("total-question");
 const _checkBtn = document.getElementById("check-answer");
 const _playAgainBtn = document.getElementById("play-again");
+const _result = document.getElementById("result");
 
 let correctAnswer = "", correctScore = askedCount = 0, totalQuestions = 10;
 
@@ -27,7 +28,7 @@ async function loadQuestion () {
     const results = await fetch(`${apiURL}`);
     const data = await results.json();
     // console.log(data.results[0]);
-    showQuestion(data.results[1])
+    showQuestion(data.results[0])
 }
 
 function showQuestion(data) {
@@ -61,13 +62,20 @@ function selectAnswer () {
         option.classList.add("selected");
     })
     );
+    console.log(correctAnswer);
 };
 
 // Answer Checking
-function checkAnswer() {
+function checkAnswer(data) {
     _checkBtn.disabled = true;
     if(_options.querySelector(".selected")){
         let selectedAnswer = _options.querySelector(".selected span").textContent;
-        console.log(selectedAnswer)
+        // console.log(selectedAnswer)
+        if (selectedAnswer === correctAnswer){
+            correctScore++;
+            _result.innerHTML = `<p>Correct Answer</p>`;
+        } else {
+            _result.innerHTML = `<p>Incorrect Answer</p> <b> <p>Correct Answer: ${correctAnswer}`;
+        }
     }  
 }
