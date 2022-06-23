@@ -13,7 +13,7 @@ let correctAnswer = "", correctScore = askedCount = 0, totalQuestions = 10;
 // Event Listeners
 function eventCheckBtn(){
     _checkBtn.addEventListener("click", checkAnswer);
-    // _playAgainBtn.addEventListener("click", restartQuiz)
+    _playAgainBtn.addEventListener("click", restartQuiz)
 }
 
 
@@ -113,3 +113,12 @@ function setCount(){
 }
 
 
+
+function restartQuiz () {
+    correctScore = askedCount = 0;
+    _playAgainBtn.style.display = "none";
+    _checkBtn.style.display = "block";
+    _checkBtn.disabled = false;
+    setCount ();
+    loadQuestion ();
+}
