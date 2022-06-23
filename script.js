@@ -13,6 +13,7 @@ let correctAnswer = "", correctScore = askedCount = 0, totalQuestions = 10;
 // Event Listeners
 function eventCheckBtn(){
     _checkBtn.addEventListener("click", checkAnswer);
+    // _playAgainBtn.addEventListener("click", restartQuiz)
 }
 
 
@@ -27,12 +28,14 @@ async function loadQuestion () {
     const apiURL = 'https://opentdb.com/api.php?amount=10';
     const results = await fetch(`${apiURL}`);
     const data = await results.json();
+    _result.innerHTML = "";
     // console.log(data.results[0]);
     showQuestion(data.results[0])
 }
 
 function showQuestion(data) {
-    let correctAnswer = data.correct_answer;
+    _checkBtn.disabled = false;
+    correctAnswer = data.correct_answer;
     let incorrectAnswer = data.incorrect_answers;
     // inserting correct answer in random position in the options list
     let optionsList = incorrectAnswer;   
@@ -42,17 +45,17 @@ function showQuestion(data) {
     _question.innerHTML = `${data.question} <br> <span class = "category"> 
     ${data.category} </span>` ;
     _options.innerHTML = `
-        ${optionsList.map ((option, index) => `
-        <li> ${index +1}. <span> ${option} </span> </li>
+        ${optionsList.map((option, index) => `
+            <li> ${index + 1}. <span>${option}</span> </li>
         `).join("")}
         `;
 
-        selectAnswer ();
+        selectOption ();
 }
 
 
 // Options section
-function selectAnswer () {
+function selectOption () {
     _options.querySelectorAll("li").forEach((option) =>
     option.addEventListener("click", () =>{
         if(_options.querySelector(".selected")){
@@ -62,20 +65,29 @@ function selectAnswer () {
         option.classList.add("selected");
     })
     );
-    console.log(correctAnswer);
+    // console.log(correctAnswer);
 };
 
 // Answer Checking
-function checkAnswer(data) {
+function checkAnswer() {
     _checkBtn.disabled = true;
     if(_options.querySelector(".selected")){
-        let selectedAnswer = _options.querySelector(".selected span").textContent;
-        // console.log(selectedAnswer)
-        if (selectedAnswer === correctAnswer){
+        let selectedAnswer = _options.querySelector('.selected span').textContent;
+        // console.log(selectedAnswer)}
+        if (selectedAnswer == decodeHTML(correctAnswer)){
             correctScore++;
-            _result.innerHTML = `<p>Correct Answer</p>`;
+            _result.innerHTML = `<p>That is Correct!</p>`;
         } else {
-            _result.innerHTML = `<p>Incorrect Answer</p> <b> <p>Correct Answer: ${correctAnswer}`;
+            _result.innerHTML = `<p>Incorrect Answer</p>`;
         }
-    }  
+    } else {
+        _result.innerHTML = `<p>Please select an option!</p>`;
+        _checkBtn.disabled = false;
+    }
 }
+
+function decodeHTML(textstring){
+    let doc = new DOMParser().parseFromString(textstring, "text/html");
+    return doc.documentElement.textContent;
+}
+
