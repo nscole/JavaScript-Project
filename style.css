@@ -67,5 +67,45 @@ body {
 
 .quiz-question .category {
     font-size: 0.9rem;
+    font-weight: 500;
+    background-color: #43DCF0;
+    color: var(--light-color);
+    padding: .2rem .4rem;
+    border-radius: .2rem;
+    margin-top: 0.5rem;
+    display: inline-block;
 }
+
+.quiz-options{
+    list-style-type: none;
+    margin: 1rem 0;
+}
+
+.quiz-options li{
+    border-radius: 0.5rem;
+    font-weight: 600;
+    margin: 0.7rem 0;
+    padding: .4rem 1.2rem;
+    cursor: pointer;
+    color: var(--light-color);
+    border: 3px solid var(--blue-color-contrast);
+    background-color: var(--blue-color-contrast);
+    box-shadow: 3px 4px 0 0 var(--dark-blue-color);
+    transition: var(--transition);
+}
+
+
+.quiz-options li:hover{
+    background-color: var(--gray-color);
+    color: var(--dark-color);
+    border-color: var(--gray-color);
+    box-shadow: 3px 4px 0 0 #bbb;
+    
+}
+
+
+
+
+
+
 
