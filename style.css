@@ -38,18 +38,13 @@ body {
 .image-header{
     display: flex;
     flex-direction: column;
-    
     height: 200px;
-    background-color: #f2f2f2;
-    margin: 50px;
-   
     width: 30%;
-   
-
-
+    margin-bottom: 35px;
 }
 
 .wrapper {
+    margin-top: 10px;
     align-items: center;
     background-color: var(--light-color);
     padding: 1.5rem 4rem 3rem 4rem;
@@ -68,6 +63,7 @@ body {
 }
 .quiz-score{
     flex-direction: row;
+    letter-spacing: 2px;
     text-align: right;
     font-weight: 600rem;
     font-size: 1.2rem;
