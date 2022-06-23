@@ -14,9 +14,9 @@
     --light-color: #fff;
     --dark-color: #000;
     --gray-color: #f2f2f2;
+    --dark-gray-colour: rgb(52, 48, 48);
     --transition: all 300ms ease-in-out;
 }
-
 
 .flex {
     display: flex;
@@ -28,18 +28,44 @@ body {
     font-family: 'Poppins', sans-serif;
     height: 100vh;
     color: var(--dark-color);
-    background-color: var(--gray-color);
+    background-image: url(./Images/Background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
+/* .image-header{
+    display: flex;
+    position: relative;
+    border: #f2f2f2;
+    height: 200px;
+    background-color: #f2f2f2;
+    margin-bottom: 50px;
+    align-items: center;
+    width: 100px;
+    justify-content: center;
+
+
+} */
+
 .wrapper {
+    display: flex;
+    align-items: center;
     background-color: var(--light-color);
     padding: 1.5rem 4rem 3rem 4rem;
     width: 600px;
-    height: 680px;
-    border-top-left-radius: 1.5rem;
-    border-top-right-radius: 1.5rem; 
+    height: 600px;
+    border-radius: 1.5rem;
     position: relative;
     box-shadow: 0 4px 6px rgb(0 0 0 / 10%), 0 1px 3px rgb(0 0 0 /10%);
+}
+
+.header-image {
+    width: 100px;
+    background-color: white;
+    height: 50;
+    position: absolute;
+
+
 }
 
 .quiz-title{

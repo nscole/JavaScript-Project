@@ -1,4 +1,5 @@
-// https://opentdb.com/api.php?amount=10
+// API website   -   https://opentdb.com/api_config.php
+// Actualy API   -   https://opentdb.com/api.php?amount=10
 
 const _question = document.getElementById("question");
 const _options = document.querySelector(".quiz-options");
@@ -7,6 +8,7 @@ const _totalQuestions = document.getElementById("total-question");
 const _checkBtn = document.getElementById("check-answer");
 const _playAgainBtn = document.getElementById("play-again");
 const _result = document.getElementById("result");
+
 
 let correctAnswer = "", correctScore = askedCount = 0, totalQuestions = 10;
 
@@ -74,11 +76,11 @@ function checkAnswer() {
     if(_options.querySelector(".selected")){
         let selectedAnswer = _options.querySelector('.selected span').textContent;
         // console.log(selectedAnswer)}
-        if (selectedAnswer == decodeHTML(correctAnswer)){
+        if (selectedAnswer == correctAnswer){
             correctScore++;
             _result.innerHTML = `<p>That is Correct!</p>`;
         } else {
-            _result.innerHTML = `<p>Incorrect Answer</p>`;
+            _result.innerHTML = `<p>Incorrect Answer!</p>`;
         }
     } else {
         _result.innerHTML = `<p>Please select an option!</p>`;
@@ -96,13 +98,13 @@ function checkCount (){
     askedCount++;
     setCount();
     if(askedCount === totalQuestions){
-        _result.innerHTML += `<p> Your score is ${correctScore} </p>`;
+        _result.innerHTML += `<p><small Your score is ${correctScore} </p>`;
         _playAgainBtn.style.display = "block";
         _checkBtn.style.display = "none";
     } else {
         setTimeout(() => {
         loadQuestion ();
-    }, 300);
+    }, 500);
     }
 }
 
