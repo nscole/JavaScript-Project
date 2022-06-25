@@ -96,6 +96,7 @@ function decodeHTML(textstring){
     return doc.documentElement.textContent;
 }
 
+
 function checkCount (){
     askedCount++;
     setCount();
@@ -127,17 +128,30 @@ function restartQuiz () {
     loadQuestion ();
 }
 
-// Header Function
-let imgHead = document.querySelector("#image-header");
 
-function displayImage(){
-    imgHead.innerHTML = `<img src="Images/Header-1.png" alt="header-1">`;
-  };
 
-function displayOtherImage () {
-    imgHead.innerHTML = `<img src="Images/Header-2.png" alt="header-2">`
-};
+// Header Change Image Functions
+function setNewImage () {
+    document.getElementById("image").src = "./Images/Header-2.png";
+    console.log("Mouseover");
+    
+}
 
-// Header Image Event Listener
-imgHead.addEventListener("mouseover", displayOtherImage)
-imgHead.addEventListener("mouseout", displayImage)
+// Header Change Image Event Listeners
+document.getElementById("image").addEventListener("mouseover", setNewImage);
+
+
+document.getElementById("image").addEventListener("mouseleave", setOldImage);
+
+// Header Change Image Functions
+function setOldImage () {
+    document.getElementById("image").src = "./Images/Header-1.png";
+}
+
+
+
+
+
+
+
+ 
