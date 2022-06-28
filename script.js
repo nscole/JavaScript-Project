@@ -75,22 +75,21 @@ function selectOption () {
 };
 
 // Checks Answer
-function checkAnswer() {
+function checkAnswer(){
     _checkBtn.disabled = true;
-    if(_options.querySelector(".selected")){
+    if(_options.querySelector('.selected')){
         let selectedAnswer = _options.querySelector('.selected span').textContent;
-        // console.log(selectedAnswer)}
-        if (selectedAnswer == correctAnswer){
+        if(selectedAnswer == decodeHTML(correctAnswer)){
             correctScore++;
-            _result.innerHTML = `<p>That is Correct!</p>`;
+            _result.innerHTML = `<p>Correct Answer!</p>`;
         } else {
             _result.innerHTML = `<p>Incorrect Answer!</p>`;
         }
+        checkCount();
     } else {
         _result.innerHTML = `<p>Please select an option!</p>`;
         _checkBtn.disabled = false;
     }
-    checkCount();
 }
 
 // to convert html entities into normal text of correct answer if there is any
@@ -105,6 +104,9 @@ function checkCount (){
     askedCount++;
     setCount();
     if(askedCount === totalQuestions){
+        setTimeout(function(){
+            console.log("");}, 
+            200);
         _result.innerHTML += `<p><small Your score is ${correctScore} </p>`;
         _playAgainBtn.style.display = "block";
         _checkBtn.style.display = "none";
@@ -115,7 +117,7 @@ function checkCount (){
     }
 }
 
-// A function to stop the quiz once it reached
+// A function to stop the quiz once it reached total questions
 function setCount(){
     _totalQuestions.textContent = totalQuestions;
     _correctScore.textContent = correctScore;
