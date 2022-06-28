@@ -137,7 +137,7 @@ function restartQuiz () {
 // Header Change to New Image Function
 function setNewImage () {
     document.getElementById("image").src = "./Images/Header-2.png";
-    console.log("Mouseover");
+    // console.log("Mouseover");
     
 }
 
