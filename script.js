@@ -1,5 +1,5 @@
 // API website   -   https://opentdb.com/api_config.php
-// Actualy API   -   https://opentdb.com/api.php?amount=10
+// Actual API   -   https://opentdb.com/api.php?amount=10
 
 const _question = document.getElementById("question");
 const _options = document.querySelector(".quiz-options");
@@ -28,6 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     _correctScore.textContent = correctScore;
 })
 
+// Fetch Used to get API
 async function loadQuestion () {
     const apiURL = 'https://opentdb.com/api.php?amount=10';
     const results = await fetch(`${apiURL}`);
@@ -37,6 +38,7 @@ async function loadQuestion () {
     showQuestion(data.results[0])
 }
 
+// Function for showing questins and options
 function showQuestion(data) {
     _checkBtn.disabled = false;
     correctAnswer = data.correct_answer;
@@ -72,7 +74,7 @@ function selectOption () {
     console.log(correctAnswer);
 };
 
-// Answer Checking
+// Checks Answer
 function checkAnswer() {
     _checkBtn.disabled = true;
     if(_options.querySelector(".selected")){
@@ -91,12 +93,14 @@ function checkAnswer() {
     checkCount();
 }
 
+// to convert html entities into normal text of correct answer if there is any
 function decodeHTML(textstring){
     let doc = new DOMParser().parseFromString(textstring, "text/html");
     return doc.documentElement.textContent;
 }
 
 
+// Checks how many answers you have answered correctly
 function checkCount (){
     askedCount++;
     setCount();
@@ -111,14 +115,14 @@ function checkCount (){
     }
 }
 
-
+// A function to stop the quiz once it reached
 function setCount(){
     _totalQuestions.textContent = totalQuestions;
     _correctScore.textContent = correctScore;
 }
 
 
-
+// Restarts Quiz
 function restartQuiz () {
     correctScore = askedCount = 0;
     _playAgainBtn.style.display = "none";
@@ -130,20 +134,20 @@ function restartQuiz () {
 
 
 
-// Header Change Image Functions
+// Header Change to New Image Function
 function setNewImage () {
     document.getElementById("image").src = "./Images/Header-2.png";
     console.log("Mouseover");
     
 }
 
-// Header Change Image Event Listeners
+// // Header Change Image Event Listeners
 document.getElementById("image").addEventListener("mouseover", setNewImage);
 
 
 document.getElementById("image").addEventListener("mouseleave", setOldImage);
 
-// Header Change Image Functions
+// // Header Change Image to old image Function
 function setOldImage () {
     document.getElementById("image").src = "./Images/Header-1.png";
 }
