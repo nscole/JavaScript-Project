@@ -107,7 +107,7 @@ function checkCount (){
         setTimeout(function(){
             console.log("");}, 
             200);
-        _result.innerHTML += `<p><small Your score is ${correctScore} </p>`;
+        _result.innerHTML += ``;
         _playAgainBtn.style.display = "block";
         _checkBtn.style.display = "none";
     } else {
